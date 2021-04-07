@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class Taller1 {
+    public static void main(String[] args){
+        NumeroBinario();
+    }
+
+    //Este método pasa de números enteros a números binarios
+    public static void NumeroBinario(){
+        Scanner t=new Scanner(System.in);
+        int num1,num2;
+        String num3="";
+        System.out.println("Ingrese un número de a lo mas 10 digitos");
+        num1=t.nextInt();
+        if(num1>0) {
+            String x = Integer.toString(num1);
+            num2 = x.length();
+            while (num1 > 0) {
+                if (0 < num2 && num2 <= 10) {
+                    if (num1 % 2 == 0) {
+                        num3 = "0" + num3;
+                    } else {
+                        num3 = "1" + num3;
+                    }
+                    num1 = (int) num1 / 2;
+                } else {
+                    System.out.println("Ingrese un numero menor de 10 dígitos");
+                    NumeroBinario();
+                }
+            }
+        }else if(num1==0){
+            System.out.println("Numero binario es 0");
+        }else{
+            System.out.println("Ingrese un número positivo");
+            NumeroBinario();
+        }
+
+        System.out.println(num3);
+    }
+
+    public static void NumeroEntero(){
+
+    }
+}
